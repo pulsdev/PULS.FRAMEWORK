@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
+		<PackageId>PulsCloud.ArchRules</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Company>puls cloud development GmbH</Company>
 		<Authors>Puls Team</Authors>

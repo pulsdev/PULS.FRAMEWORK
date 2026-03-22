@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <PackageId>PulsCloud.CodeGenerator</PackageId>
     <AssemblyName>Puls.CodeGenerator</AssemblyName>
     <RootNamespace>Puls.CodeGenerator</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
