@@ -1,0 +1,54 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore packages'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build projects'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Pack Puls.Cloud.Framework'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/Puls.Cloud.Framework.csproj'
+    configuration: '$(buildConfiguration)'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'off'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Pack Puls.Cloud.Framework.Authentication'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/Puls.Cloud.Framework.Authentication.csproj'
+    configuration: '$(buildConfiguration)'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'off'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
+    nuGetFeedType: external
+    publishFeedCredentials: 'DAYA NUGET ORG'  # TODO: Update this service connection name in Azure DevOps to match new naming

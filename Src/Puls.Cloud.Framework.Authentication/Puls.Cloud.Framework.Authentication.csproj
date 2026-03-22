@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Company>puls cloud development GmbH</Company>
+		<Authors>Puls Team</Authors>
+		<Copyright>puls cloud development GmbH</Copyright>
+		<Version>8.0.0</Version>
+		<AssemblyVersion>8.0.0.0</AssemblyVersion>
+		<FileVersion>8.0.0.0</FileVersion>
+		<PackageReleaseNotes>
+			8.0.0 Initial project
+		</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="RestSharp" Version="112.1.0" />
+	</ItemGroup>
+
+</Project>

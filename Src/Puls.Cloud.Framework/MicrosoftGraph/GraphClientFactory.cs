@@ -1,0 +1,40 @@
+﻿using Azure.Identity;
+using Microsoft.Graph;
+
+namespace Puls.Cloud.Framework.MicrosoftGraph
+{
+    public class GraphClientFactory : IGraphClientFactory
+    {
+        private readonly string _appId;
+        private readonly string _tenantId;
+        private readonly string _clientSecret;
+
+        private GraphServiceClient _graphServiceClient;
+
+        /// <summary>
+        /// </summary>
+        /// <param name="appId">Client Id</param>
+        /// <param name="tenantId">Tenant Id</param>
+        /// <param name="clientSecret">Client Secret</param>
+        public GraphClientFactory(string appId, string tenantId, string clientSecret)
+        {
+            _appId = appId;
+            _tenantId = tenantId;
+            _clientSecret = clientSecret;
+
+            _graphServiceClient = Get();
+        }
+
+        public GraphServiceClient Get()
+        {
+            if (_graphServiceClient != null)
+            {
+                return _graphServiceClient;
+            }
+            var clientSecretCredential = new ClientSecretCredential(_tenantId, _appId, _clientSecret);
+
+            _graphServiceClient = new GraphServiceClient(clientSecretCredential);
+            return _graphServiceClient;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+﻿using Puls.Sample.Domain.Categories.Events;
+using Puls.Sample.Domain.Commons;
+using Puls.Cloud.Framework.DirectOperations;
+using Puls.Cloud.Framework.DirectOperations.Attributes;
+using Puls.Cloud.Framework.Domain;
+using Newtonsoft.Json;
+
+namespace Puls.Sample.Domain.Categories
+{
+    [ContainerName(ServiceDatabaseContainers.Categories)]
+    [PartitionKeyPath("partitionKey")]
+    public class Category : CosmosEntity
+    {
+        public override CategoryId Id { get; } = null!;
+        public string PartitionKey { get; private set; } = null!;
+        public string Name { get; private set; } = null!;
+        public string? Description { get; private set; }
+        public List<CategoryTag> Tags { get; private set; } = new();
+
+        [JsonConstructor]
+        private Category(CategoryId id)
+        {
+            Id = id;
+        }
+
+        public static async Task<Category> CreateAsync(
+            CategoryId id,
+            string partitionKey,
+            string name,
+            string? description)
+        {
+            var @event = new CategoryCreatedDomainEvent(
+                id,
+                partitionKey,
+                name,
+                description);
+
+            var category = new Category(id);
+
+            category.Apply(@event);
+            category.AddDomainEvent(@event);
+
+            return await Task.FromResult(category);
+        }
+
+        public void Update(string name, CategoryTag tag)
+        {
+            var @event = new CategoryUpdatedDomainEvent(
+                Id,
+                name,
+                tag);
+
+            ApplyEvent(@event);
+            AddDomainEvent(@event);
+        }
+
+        protected override void Apply(IDomainEvent @event)
+        {
+            ApplyEvent(@event as dynamic);
+        }
+
+        private void ApplyEvent(CategoryCreatedDomainEvent @event)
+        {
+            Name = @event.Name;
+            Description = @event.Description;
+            PartitionKey = @event.PartitionKey;
+        }
+
+        private void ApplyEvent(CategoryUpdatedDomainEvent @event)
+        {
+            Name = @event.Name;
+            Tags.Add(@event.Tag);
+        }
+    }
+}

@@ -1,0 +1,13 @@
+﻿namespace Puls.Cloud.Framework.Common.Constants
+{
+    public class AzureServiceBusConstants
+    {
+        public class MessageContentTypes
+        {
+            public const string ApplicationJson = "application/json";
+            public const string MultipartEncrypted = "multipart/encrypted";
+            public const string Gzip = "gzip";
+            public const string GzipEncrypted = "gzip/encrypted";
+        }
+    }
+}

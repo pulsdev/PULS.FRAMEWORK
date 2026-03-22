@@ -1,0 +1,35 @@
+name: Publish NuGet Packages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack all NuGet packages
+        run: |
+          dotnet pack Src/Puls.Cloud.Framework/Puls.Cloud.Framework.csproj --configuration Release --no-build --output ./nupkgs
+          dotnet pack Src/Puls.Cloud.Framework.Authentication/Puls.Cloud.Framework.Authentication.csproj --configuration Release --no-build --output ./nupkgs
+          dotnet pack Src/Puls.Cloud.Framework.Cosmos.Migration/Puls.Cloud.Framework.Cosmos.Migration.csproj --configuration Release --no-build --output ./nupkgs
+          dotnet pack Src/Puls.Cloud.Framework.SymmetricEncryption/Puls.Cloud.Framework.SymmetricEncryption.csproj --configuration Release --no-build --output ./nupkgs
+          dotnet pack Src/Puls.ArchRules/Puls.ArchRules.csproj --configuration Release --no-build --output ./nupkgs
+          dotnet pack Src/Puls.Cloud.CodeGenerator/Puls.Cloud.CodeGenerator.csproj --configuration Release --no-build --output ./nupkgs
+
+      - name: Push to NuGet.org
+        run: dotnet nuget push ./nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

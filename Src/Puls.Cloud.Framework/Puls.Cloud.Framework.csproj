@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Company>puls cloud development GmbH</Company>
+		<Authors>Puls Team</Authors>
+		<Copyright>puls cloud development GmbH</Copyright>
+		<Version>8.0.0</Version>
+		<AssemblyVersion>8.0.0.0</AssemblyVersion>
+		<FileVersion>8.0.0.0</FileVersion>
+		<PackageReleaseNotes>
+			8.0.0 Initial project
+		</PackageReleaseNotes>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Identity" Version="1.14.2" />
+		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
+		<PackageReference Include="Azure.Search.Documents" Version="11.6.1" />
+		<PackageReference Include="CacheQ" Version="1.0.5" />
+		<PackageReference Include="CacheQ.DependencyInjectionExtensions" Version="1.0.5" />
+		<PackageReference Include="FluentValidation" Version="12.0.0" />
+		<PackageReference Include="MediatR" Version="12.5.0" />
+		<PackageReference Include="CompareNETObjects" Version="4.83.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights" Version="2.23.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+		<PackageReference Include="Microsoft.Azure.Cosmos" Version="3.52.1" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.7" />
+		<PackageReference Include="Polly" Version="8.6.2" />
+		<PackageReference Include="Microsoft.Graph" Version="5.87.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DirectOperations\Configuration\" />
+	  <Folder Include="Infrastructure\Audits\" />
+	  <Folder Include="Infrastructure\Configuration\Processing\ApplicationAssembly\" />
+	  <Folder Include="Infrastructure\DataAccess\" />
+	  <Folder Include="Infrastructure\DependencyInjection\" />
+	</ItemGroup>
+
+</Project>
