@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <PackageId>PulsCloud.CodeGenerator</PackageId>
     <AssemblyName>Puls.CodeGenerator</AssemblyName>
     <RootNamespace>Puls.CodeGenerator</RootNamespace>
@@ -11,9 +11,9 @@
     <Authors>Puls Team</Authors>
     <Company>puls cloud development GmbH</Company>
     <Product>CodeGenerator</Product>
-    <Version>8.0.2</Version>
-    <AssemblyVersion>8.5.2.0</AssemblyVersion>
-    <FileVersion>8.5.2.0</FileVersion>
+    <Version>10.0.0</Version>
+    <AssemblyVersion>10.0.0.0</AssemblyVersion>
+    <FileVersion>10.0.0.0</FileVersion>
     <PackageReleaseNotes>
 		8.5.2 Fix the Application namespace finder
 		8.5.1 Fix finding the projet helper path
