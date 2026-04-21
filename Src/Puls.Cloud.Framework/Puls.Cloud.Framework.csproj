@@ -7,11 +7,11 @@
 		<Company>puls cloud development GmbH</Company>
 		<Authors>Puls Team</Authors>
 		<Copyright>puls cloud development GmbH</Copyright>
-		<Version>10.0.0</Version>
-		<AssemblyVersion>10.0.0.0</AssemblyVersion>
-		<FileVersion>10.0.0.0</FileVersion>
+		<Version>10.0.1</Version>
+		<AssemblyVersion>10.0.1.0</AssemblyVersion>
+		<FileVersion>10.0.1.0</FileVersion>
 		<PackageReleaseNotes>
-			10.0.0 Upgrade to .NET 10
+			10.0.1 Bug fixes / update mediatR to 12.5.0
 		</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
@@ -25,7 +25,7 @@
 		<PackageReference Include="CacheQ" Version="1.0.5" />
 		<PackageReference Include="CacheQ.DependencyInjectionExtensions" Version="1.0.5" />
 		<PackageReference Include="FluentValidation" Version="12.1.0" />
-		<PackageReference Include="MediatR" Version="13.0.1" />
+		<PackageReference Include="MediatR" Version="12.5.0" />
 		<PackageReference Include="CompareNETObjects" Version="4.83.0" />
 		<PackageReference Include="Microsoft.ApplicationInsights" Version="2.23.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
