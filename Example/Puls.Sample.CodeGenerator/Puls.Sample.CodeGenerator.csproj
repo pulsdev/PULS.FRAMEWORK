@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	<TargetFramework>net10.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
 	<OutputType>Exe</OutputType>
   </PropertyGroup>
 
@@ -11,6 +11,7 @@
     <ProjectReference Include="..\..\Src\Puls.Cloud.CodeGenerator\Puls.Cloud.CodeGenerator.csproj" />
     <ProjectReference Include="..\Puls.Sample.Application\Puls.Sample.Application.csproj" />
     <ProjectReference Include="..\Puls.Sample.Domain\Puls.Sample.Domain.csproj" />
+    <ProjectReference Include="..\Puls.Sample.Infrastructure\Puls.Sample.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

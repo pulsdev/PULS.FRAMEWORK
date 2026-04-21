@@ -1,13 +1,14 @@
-using System.Reflection;
 using Azure.Identity;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Azure;
+using Puls.Cloud.Framework.Infrastructure.Configuration;
+using Puls.Cloud.Framework.MicrosoftGraph;
 using Puls.Sample.API.Configuration.Keyvault;
 using Puls.Sample.API.Configuration.Logging;
 using Puls.Sample.Infrastructure.Configuration.CosmosDatabase;
 using Puls.Sample.Infrastructure.Configuration.ServiceBus;
 using Puls.Sample.WebAPI.Configuration.Scope;
-using Puls.Cloud.Framework.Infrastructure.Configuration;
-using Puls.Cloud.Framework.MicrosoftGraph;
-using Microsoft.Extensions.Azure;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,13 +101,21 @@ void ConfigureAzureServices(WebApplicationBuilder builder)
     // Register Azure services
     builder.Services.AddServiceBus(builder.Configuration);
 
-    var databaseName = builder.Configuration.GetValue<string>("ServiceDatabaseConfig:DatabaseName");
+    // Get Cosmos DB configuration
+    var databaseName = builder.Configuration.GetValue<string>("CosmosDb:DatabaseName");
     var accountEndpoint = builder.Configuration.GetValue<string>("ServiceDatabaseConfig:AccountEndpoint");
     var accountKey = builder.Configuration.GetValue<string>("ServiceDatabaseConfig:AccountKey");
 
-    // Register Cosmos DB service
+    // Register Cosmos DB service (this already registers CosmosClient)
     builder.Services.AddCosmosDb(config =>
     {
         return new ServiceDatabaseConfig(accountEndpoint!, accountKey!, databaseName!);
     }, null, credential);
+
+    // Register Database singleton
+    builder.Services.AddSingleton(sp =>
+    {
+        var client = sp.GetRequiredService<CosmosClient>();
+        return client.GetDatabase(databaseName!);
+    });
 }
