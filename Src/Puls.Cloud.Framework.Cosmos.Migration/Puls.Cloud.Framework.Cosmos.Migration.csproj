@@ -7,18 +7,23 @@
 		<Company>puls cloud development GmbH</Company>
 		<Authors>Puls Team</Authors>
 		<Copyright>puls cloud development GmbH</Copyright>
-		<Version>10.0.1</Version>
-		<AssemblyVersion>10.0.1.0</AssemblyVersion>
-		<FileVersion>10.0.1.0</FileVersion>
+		<Version>10.0.2</Version>
+		<AssemblyVersion>10.0.2.0</AssemblyVersion>
+		<FileVersion>10.0.2.0</FileVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageReleaseNotes>
+			10.0.2MediatR locked to 12.5.0 (last free version) / Updated all packages to latest stable versions
+			10.0.0 Upgrade to .NET 10
+			8.0.0 Initial project
+		</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="MediatR" Version="12.5.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.7" />
 		<PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
 		<PackageReference Include="Newtonsoft.Json.Schema" Version="4.0.1" />
 	</ItemGroup>

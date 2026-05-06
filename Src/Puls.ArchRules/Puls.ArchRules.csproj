@@ -7,11 +7,13 @@
 		<Company>puls cloud development GmbH</Company>
 		<Authors>Puls Team</Authors>
 		<Copyright>puls cloud development GmbH</Copyright>
-		<Version>10.0.1</Version>
-		<AssemblyVersion>10.0.1.0</AssemblyVersion>
-		<FileVersion>10.0.1.0</FileVersion>
+		<Version>10.0.2</Version>
+		<AssemblyVersion>10.0.2.0</AssemblyVersion>
+		<FileVersion>10.0.2.0</FileVersion>
 		<PackageReleaseNotes>
-			8.0.0 Initial Project
+			10.0.2 Updated all packages to latest stable versions
+			10.0.0 Upgrade to .NET 10
+			8.0.0 Initial project
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
