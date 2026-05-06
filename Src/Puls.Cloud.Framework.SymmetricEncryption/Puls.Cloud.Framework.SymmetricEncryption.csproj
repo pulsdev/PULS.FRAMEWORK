@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
@@ -7,15 +7,20 @@
 		<Company>puls cloud development GmbH</Company>
 		<Authors>Puls Team</Authors>
 		<Copyright>puls cloud development GmbH</Copyright>
-		<Version>10.0.1</Version>
-		<AssemblyVersion>10.0.1.0</AssemblyVersion>
-		<FileVersion>10.0.1.0</FileVersion>
+		<Version>10.0.2</Version>
+		<AssemblyVersion>10.0.2.0</AssemblyVersion>
+		<FileVersion>10.0.2.0</FileVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageReleaseNotes>
+			10.0.2 Updated all packages to latest stable versions
+			10.0.0 Upgrade to .NET 10
+			8.0.0 Initial project
+		</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.7" />
 	</ItemGroup>
 
 </Project>

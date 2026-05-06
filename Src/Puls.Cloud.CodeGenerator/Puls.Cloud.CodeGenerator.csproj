@@ -11,12 +11,14 @@
     <Authors>Puls Team</Authors>
     <Company>puls cloud development GmbH</Company>
     <Product>CodeGenerator</Product>
-    <Version>10.0.1</Version>
-    <AssemblyVersion>10.0.1.0</AssemblyVersion>
-    <FileVersion>10.0.1.0</FileVersion>
-    <PackageReleaseNotes>
+	<Version>10.0.2</Version>
+	<AssemblyVersion>10.0.2.0</AssemblyVersion>
+	<FileVersion>10.0.2.0</FileVersion>
+	<PackageReleaseNotes>
+		10.0.2 Fixed Microsoft.AspNetCore.Http.Features package version / Updated all packages
+		10.0.0 Upgrade to .NET 10
 		8.5.2 Fix the Application namespace finder
-		8.5.1 Fix finding the projet helper path
+		8.5.1 Fix finding the project helper path
 		8.5.0 Integrate with new version
 	</PackageReleaseNotes>
   </PropertyGroup>
